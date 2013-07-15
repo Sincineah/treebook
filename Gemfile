@@ -47,5 +47,6 @@ end
 
 # Custom
 
-gem 'devise'
+gem 'devise', github: 'plataformatec/devise', branch: 'rails4'
 gem 'protected_attributes'
+gem 'simple_form'

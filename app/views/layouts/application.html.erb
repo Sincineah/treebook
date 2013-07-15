@@ -16,13 +16,21 @@
             <ul class="nav">
               <li><%= link_to "All Statuses", statuses_path %></li>
               <li><%= link_to "Post a new Status", new_status_path %></li>
+            </ul>
+            <ul class="nav pull-right">
               <% if user_signed_in? %>
                   <li>
-                    <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+                    <%= link_to current_user.full_name, edit_user_registration_path %>
+                  </li>
+                  <li>
+                    <%= link_to "Logout", destroy_user_session_path, method: :delete %>
                   </li>
               <% else %>
                   <li>
-                    <%= link_to('Login', new_user_session_path)  %>
+                    <%= link_to('Register', new_user_registration_path ) %>
+                  </li>
+                  <li>
+                    <%= link_to('Login', new_user_session_path ) %>
                   </li>
               <% end %>
             </ul>
@@ -30,8 +38,6 @@
       </div>
     </div>
     <div class="container">
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
       <%= yield %>
     </div>
 
